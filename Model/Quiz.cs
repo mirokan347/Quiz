@@ -11,12 +11,20 @@ namespace Quiz.Model
 
 
         public string Title { get; set;}
+
+        public Quiz(string title) => Title = title;
+
         public int NumberOfQuestion => questions.Count;
 
         public void AddQuestion(Question q)
         {
             questions.Add(q);
 
+        }
+
+        public Question this[int n]
+        {
+            get => questions[n];
         }
 
     }

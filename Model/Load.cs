@@ -6,13 +6,16 @@ namespace Quiz.Model
 
 public class Load
 {
-		public static Quiz load_from_file(string file)
+		public static Quiz Load_from_file(string file)
 		{
 			if (File.Exists(file))
 			{
 				string[] lines = File.ReadAllLines(file);
-				Quiz quiz = new Quiz();
-				foreach (var line in lines)
+				string title = file.Substring(2,file.Length-6);
+
+				Quiz quiz = new Quiz(title);
+
+                foreach (var line in lines)
 			
 				{
 					var quizline = line.Split(';');
@@ -22,17 +25,11 @@ public class Load
                     {
 						bool correct = quizline[5] == $"{i}";
 						Answer answer = new Answer(quizline[i], correct);
-						question.AddAnswer(answer);
-						
+						question.AddAnswer(answer);						
 					}
-
 					quiz.AddQuestion(question);
-
-
-
-
 				}
-
+				return quiz;
 			}
 			return null;
 			

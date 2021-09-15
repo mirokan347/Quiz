@@ -12,10 +12,16 @@ namespace Quiz.Model
 
         public Question(string content) => Content = content;
 
+        public int CheckAnswer { get; set; }
+
         public void AddAnswer(Answer a) 
             { 
                 answers.Add(a);
             }
+        public Answer this[int n]
+        {
+            get => answers[n];
+        }
 
     }
 }

@@ -22,7 +22,9 @@
 		</Grid.RowDefinitions>
 		<!-- numer i treść pytania-->
 		<TextBlock 
-			Text="lp" Grid.Column="0" Grid.Row="0"
+			Text="{Binding NumberQuestion, 
+			RelativeSource={RelativeSource Mode=FindAncestor,
+			AncestorType={x:Type UserControl}}}" Grid.Column="0" Grid.Row="0"
 				   VerticalAlignment="Center"
 				   HorizontalAlignment="Center"
 				   FontSize="24"
@@ -45,12 +47,14 @@
 					 GroupName="answers"
 					 Name="rb_1"
 					 Tag="1"
-					 Checked="rb_Cheked"
+					Checked="rb_1_Checked"
 					 />
 		<TextBlock Grid.Row="1" Grid.Column="1"
 				   VerticalAlignment="Center"
 				   FontSize="24"
-				   Text="Odpowiedz 1"/>
+				   	Text="{Binding Path=AnswerButton[0], 
+					RelativeSource={RelativeSource Mode=FindAncestor,
+					AncestorType={x:Type UserControl}}}"/>
 
 		<!--odpowiedz 2-->
 		<RadioButton Grid.Column="0" Grid.Row="2"
@@ -59,12 +63,14 @@
 					 GroupName="answers"
 					 Name="rb_2"
 					 Tag="2"
-					 Checked="rb_Cheked"
+					Checked="rb_1_Checked"
 					 />
 		<TextBlock Grid.Row="2" Grid.Column="1"
 				   VerticalAlignment="Center"
 				   FontSize="24"
-				   Text="Odpowiedz 2"/>
+				   	Text="{Binding Path=AnswerButton[1], 
+					RelativeSource={RelativeSource Mode=FindAncestor,
+					AncestorType={x:Type UserControl}}}"/>
 
 		<!--odpowiedz 3-->
 		<RadioButton Grid.Column="0" Grid.Row="3"
@@ -73,13 +79,15 @@
 					 GroupName="answers"
 					 Name="rb_3"
 					 Tag="3"
-					 Checked="rb_Cheked"
+					Checked="rb_1_Checked"
 					 />
       <!-- 					 Checked="rb_Cheked" - to było w RadioButton -->
 		<TextBlock Grid.Row="3" Grid.Column="1"
 				   VerticalAlignment="Center"
 				   FontSize="24"
-				   Text="Odpowiedz 3"/>
+				   	Text="{Binding Path=AnswerButton[2], 
+					RelativeSource={RelativeSource Mode=FindAncestor,
+					AncestorType={x:Type UserControl}}}"/>
 
 
 		<!--odpowiedz 4-->
@@ -89,12 +97,14 @@
 					 GroupName="answers"
 					 Name="rb_4"
 					 Tag="4"
-					 Checked="rb_Cheked"
+					Checked="rb_1_Checked"
 					 />
 		<TextBlock Grid.Row="4" Grid.Column="1"
 				   VerticalAlignment="Center"
 				   FontSize="24"
-				   Text="Odpowiedz 4"/>
+				   Text="{Binding Path=AnswerButton[3], 
+					RelativeSource={RelativeSource Mode=FindAncestor,
+					AncestorType={x:Type UserControl}}}"/>
 
 	</Grid>
 </UserControl>

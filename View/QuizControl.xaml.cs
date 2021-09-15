@@ -24,7 +24,7 @@ namespace Quiz.View
         }
         // 0 - brak zaznaczenia
         // 1,2,3,4 - zaznaczone odpowiedzi
-        
+
         public static readonly DependencyProperty questionDP = DependencyProperty.Register(
             nameof(QuestionContent),
             typeof(string),
@@ -36,6 +36,32 @@ namespace Quiz.View
             get { return (string)GetValue(questionDP); }
             set { SetValue(questionDP, value); }
         }
+
+
+        public static readonly DependencyProperty NumberQuestionDP = DependencyProperty.Register(
+            nameof(NumberQuestion),
+            typeof(string),
+            typeof(QuizControl)
+            );
+
+        public List<string> AnswerButton
+        {
+            get { return (List<string>)GetValue(AnswerButtonDP); }
+            set { SetValue(AnswerButtonDP, value); }
+        }
+
+        public static readonly DependencyProperty AnswerButtonDP = DependencyProperty.Register(
+            nameof(AnswerButton),
+            typeof(List<string>),
+            typeof(QuizControl)
+            );
+
+        public string NumberQuestion
+        {
+            get { return (string)GetValue(NumberQuestionDP); }
+            set { SetValue(NumberQuestionDP, value); }
+        }
+
 
         public static readonly DependencyProperty checkedAnswerDP = DependencyProperty.Register(
 
@@ -51,13 +77,31 @@ namespace Quiz.View
 
             // nowa ustawiona wartosc zaznaczenia e.NewValue
             // starą wartosc sprzed zmiany w e.Oldvalue
-            if(quizControl != null)
+            if (quizControl != null)
             {
-                //mechanizm przestawiania zaznaczenia w yniku zmian w viewMOdel
-                quizControl.rb_1.IsChecked = true;
+                switch (e.NewValue)
+                {
+                    case 0:
+                        quizControl.rb_1.IsChecked = false;
+                        quizControl.rb_2.IsChecked = false;
+                        quizControl.rb_3.IsChecked = false;
+                        quizControl.rb_4.IsChecked = false;
+                        break;
+                    case 1:
+                        quizControl.rb_1.IsChecked = true;
+                        break;
+                    case 2:
+                        quizControl.rb_2.IsChecked = true;
+                        break;
+                    case 3:
+                        quizControl.rb_3.IsChecked = true;
+                        break;
+                    case 4:
+                        quizControl.rb_4.IsChecked = true;
+                        break;
+                }
             }
 
-            throw new NotImplementedException();
         }
 
         public int CheckedAnswer
@@ -68,16 +112,24 @@ namespace Quiz.View
 
         }
 
-        public void rb_Checked (object sender, RoutedEventArgs e)
+        //private void Rb_Checked(object sender, RoutedEventArgs e)
+        //{
+        //    if (sender is RadioButton checkedRB && int.TryParse(checkedRB.Tag.ToString(), out int number))
+        //    {
+        //        CheckedAnswer = number;
+
+        //    }
+
+
+        //}
+
+        private void rb_1_Checked(object sender, RoutedEventArgs e)
         {
             if (sender is RadioButton checkedRB && int.TryParse(checkedRB.Tag.ToString(), out int number))
             {
                 CheckedAnswer = number;
 
             }
-
-
         }
-
     }
 }

@@ -28,10 +28,25 @@
 			</Grid.RowDefinitions>
 
 		<view:QuizControl Grid.Column="1" Grid.Row="0"
-						  QuestionContent ="{Binding quiz}"
+						  QuestionContent ="{Binding title_question}"
+						  NumberQuestion ="{Binding Number_question}"
+						  AnswerButton="{Binding Answer}"
 						  CheckedAnswer="{Binding checkedAnswer, Mode=TwoWay}"
 							
 						  />
+		<ListBox Grid.Row="0" Grid.Column="0" x:Name="ListQuestion" Margin="0,20,0,0"
+				 ItemsSource="{Binding QuizList}">
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<TextBlock Text="{Binding Title}"/>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+
+		</ListBox>
+				  
+				  
+
+		<TextBlock Grid.Row="1" Grid.Column="0" Text="{Binding current_quest}" />
 		
 		<Grid Grid.Column="1" Grid.Row="1">
 			<Grid.ColumnDefinitions>
@@ -40,11 +55,11 @@
 				<ColumnDefinition/>
 			</Grid.ColumnDefinitions>
 
+			
 
-
-			<Button Grid.Column="0">&lt;&lt;</Button>
+			<Button Grid.Column="0" Command="{Binding Prev_Question}">&lt;&lt;</Button>
 			<Button Grid.Column="1">Zatwierdz</Button>
-			<Button Grid.Column="2">&gt;&gt;</Button>
+			<Button Grid.Column="2" Command="{Binding Next_Question}">&gt;&gt;</Button>
 		</Grid>
 
 	</Grid>
