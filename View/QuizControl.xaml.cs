@@ -111,16 +111,6 @@ namespace Quiz.View
 
         }
 
-        //private void Rb_Checked(object sender, RoutedEventArgs e)
-        //{
-        //    if (sender is RadioButton checkedRB && int.TryParse(checkedRB.Tag.ToString(), out int number))
-        //    {
-        //        CheckedAnswer = number;
-
-        //    }
-
-
-        //}
 
         private void rb_1_Checked(object sender, RoutedEventArgs e)
         {

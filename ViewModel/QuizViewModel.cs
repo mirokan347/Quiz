@@ -32,6 +32,7 @@ namespace Quiz.ViewModel
         public ICommand QuizSelecionChanged => quizSelectionChanged ??= new RelayCommand(
             (p) =>
             {
+
                 onPropertyChanged("quizlist", "quiz");
             },
             p => true
@@ -52,7 +53,7 @@ namespace Quiz.ViewModel
         public QuizViewModel()
         {
 
-        string[] files = Directory.GetFiles(".", "*.txt");
+        string[] files = Directory.GetFiles(".", "*.csv");
 
             foreach (string file in files)
             {
@@ -94,29 +95,12 @@ namespace Quiz.ViewModel
                         iloscPrawidlowychodpowiedzi += 1;
                     }
                 }
-                // wyślietl megaseox z ilościa prawidlowych odpowiedzi
-                MessageBox.Show("Ilość prawidłowych odpowiedzi " + iloscPrawidlowychodpowiedzi);
+
+                MessageBox.Show("Ilość prawidłowych odpowiedzi " + iloscPrawidlowychodpowiedzi );
             },
             (p) => true
 
             );
-
-        public string current_quest
-        {
-            get
-            {
-                if (quizlist.Count > 0)
-                {
-                    return quizlist[current_quiz][Current_question][0].Content;
-                    //return quizlist.Count.ToString();
-                }
-                else
-                {
-                    return "Brak quizów";
-                }
-            }
-
-        }
 
         public string title_question
         {

@@ -1,6 +1,0 @@
-Pytania nr 1;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;1
-Pytania nr 2;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;2
-Pytania nr 3;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;3
-Pytania nr 4;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;4
-Pytania nr 5;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;5
-Pytania nr 6;odpowiedz 1;odpowiedz 2;odpowiedz 3;odpowiedz 4;6

@@ -27,13 +27,13 @@
 			AncestorType={x:Type UserControl}}}" Grid.Column="0" Grid.Row="0"
 				   VerticalAlignment="Center"
 				   HorizontalAlignment="Center"
-				   FontSize="24"
+				   FontSize="16"
 				   />
 
 		<TextBlock x:Name="tb_questions"
 				Grid.Column="1" Grid.Row="0"
 			VerticalAlignment="Center"
-			FontSize="24"
+			FontSize="16"
 			
 			Text="{Binding QuestionContent, 
 			RelativeSource={RelativeSource Mode=FindAncestor,
@@ -81,7 +81,7 @@
 					 Tag="3"
 					Checked="rb_1_Checked"
 					 />
-      <!-- 					 Checked="rb_Cheked" - to było w RadioButton -->
+     
 		<TextBlock Grid.Row="3" Grid.Column="1"
 				   VerticalAlignment="Center"
 				   FontSize="24"
