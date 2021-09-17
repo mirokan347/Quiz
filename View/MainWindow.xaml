@@ -36,6 +36,7 @@
 						  />
 		<ListBox Grid.Row="0" Grid.Column="0" x:Name="ListQuestion" Margin="0,20,0,0"
 				 ItemsSource="{Binding QuizList}">
+
 			<ListBox.ItemTemplate>
 				<DataTemplate>
 					<TextBlock Text="{Binding Title}"/>
@@ -58,7 +59,7 @@
 			
 
 			<Button Grid.Column="0" Command="{Binding Prev_Question}">&lt;&lt;</Button>
-			<Button Grid.Column="1">Zatwierdz</Button>
+			<Button Grid.Column="1" Command="{Binding Zatwiedz}">Zatwierdz</Button>
 			<Button Grid.Column="2" Command="{Binding Next_Question}">&gt;&gt;</Button>
 		</Grid>
 

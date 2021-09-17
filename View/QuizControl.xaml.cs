@@ -73,12 +73,11 @@ namespace Quiz.View
 
         private static void CheckSelecion(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
+
             QuizControl quizControl = d as QuizControl;
 
             // nowa ustawiona wartosc zaznaczenia e.NewValue
             // starą wartosc sprzed zmiany w e.Oldvalue
-            if (quizControl != null)
-            {
                 switch (e.NewValue)
                 {
                     case 0:
@@ -100,7 +99,7 @@ namespace Quiz.View
                         quizControl.rb_4.IsChecked = true;
                         break;
                 }
-            }
+
 
         }
 
@@ -131,5 +130,7 @@ namespace Quiz.View
 
             }
         }
+
+
     }
 }

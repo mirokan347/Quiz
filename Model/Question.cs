@@ -10,7 +10,11 @@ namespace Quiz.Model
 
         public string Content { get; set; }
 
-        public Question(string content) => Content = content;
+        public Question(string content) 
+        {
+            Content = content;
+            CheckAnswer = 0;
+        } 
 
         public int CheckAnswer { get; set; }
 

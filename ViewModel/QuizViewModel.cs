@@ -8,6 +8,8 @@ namespace Quiz.ViewModel
 {
     using Quiz.Model;
     using BaseClass;
+    using System.Windows;
+
     class QuizViewModel : BaseViewModel
     {
  
@@ -41,6 +43,7 @@ namespace Quiz.ViewModel
         private RelayCommand prev_question;
         private RelayCommand next_question;
         private int current_quiz;
+        private RelayCommand zatwiedz;
 
         public List<Quiz> QuizList
         {
@@ -64,7 +67,7 @@ namespace Quiz.ViewModel
             (p) =>
             {
                     Current_question -= 1;
-                    onPropertyChanged(nameof(Number_question),nameof(title_question), nameof(Answer));
+                    onPropertyChanged(nameof(Number_question),nameof(title_question), nameof(Answer), nameof(checkedAnswer));
             },
             (p) => Current_question > 0 
  
@@ -73,12 +76,30 @@ namespace Quiz.ViewModel
             (p) =>
             {
                     Current_question += 1;
-                    onPropertyChanged(nameof(Number_question), nameof(title_question),nameof(Answer));
+                    onPropertyChanged(nameof(Number_question), nameof(title_question),nameof(Answer), nameof(checkedAnswer));
             },
             (p) => Current_question < quizlist[current_quiz].NumberOfQuestion-1
 
             );
+        public ICommand Zatwiedz => zatwiedz ??= new RelayCommand(
+            (p) =>
+            {
+                int iloscPrawidlowychodpowiedzi = 0;
 
+                foreach(Question pytanie in quizlist[current_quiz].questions ) // dla każdego pytania w quizie
+                {
+                    // jeśli pytanie ma prawidłową odp. dodaj 1
+                   if (pytanie.CheckAnswer != 0 && pytanie[pytanie.CheckAnswer-1].Value )
+                    {
+                        iloscPrawidlowychodpowiedzi += 1;
+                    }
+                }
+                // wyślietl megaseox z ilościa prawidlowych odpowiedzi
+                MessageBox.Show("Ilość prawidłowych odpowiedzi " + iloscPrawidlowychodpowiedzi);
+            },
+            (p) => true
+
+            );
 
         public string current_quest
         {

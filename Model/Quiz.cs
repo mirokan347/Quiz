@@ -6,7 +6,7 @@ namespace Quiz.Model
 {
     public class Quiz
     {
-        private List<Question> questions = new List<Question>();
+        public List<Question> questions = new List<Question>();
 
 
 
