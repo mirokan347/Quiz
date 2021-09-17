@@ -29,14 +29,22 @@ namespace Quiz.ViewModel
             );
 
         private ICommand quizSelectionChanged;
-        public ICommand QuizSelecionChanged => quizSelectionChanged ??= new RelayCommand(
+        public ICommand QuizSelectionChanged => quizSelectionChanged ??= new RelayCommand(
             (p) =>
             {
+                current_question = 0;
+                current_quiz = quizlist.IndexOf((Quiz)p);
 
-                onPropertyChanged("quizlist", "quiz");
+                onPropertyChanged(nameof(quizlist),
+                                  nameof(Current_question),
+                                  nameof(current_quiz),
+                                  nameof(Number_question), 
+                                  nameof(title_question), 
+                                  nameof(Answer), 
+                                  nameof(checkedAnswer)
+                                  );
             },
             p => true
-
 
             ); 
 
